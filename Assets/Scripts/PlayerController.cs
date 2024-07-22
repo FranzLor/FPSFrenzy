@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     private float verticalRotationStore = 0f;
     private Vector2 mouseInput;
 
+    public bool invertVerticalLook = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // hide and lock cursor at start
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -28,13 +31,23 @@ public class PlayerController : MonoBehaviour
         );
         
         // rotate player vertically using clamp
-        verticalRotationStore -= mouseInput.y;
+        verticalRotationStore += mouseInput.y;
         verticalRotationStore = Mathf.Clamp(verticalRotationStore, -60f, 60f);
 
-        // rotate camera vertically using vertical rotation stored
-        viewPoint.rotation = Quaternion.Euler(verticalRotationStore,
-                                              viewPoint.rotation.eulerAngles.y,
-                                              viewPoint.rotation.eulerAngles.z
-        );
+        if (invertVerticalLook)
+        {
+            // rotate camera vertically using vertical rotation stored
+            viewPoint.rotation = Quaternion.Euler(verticalRotationStore,
+                                                  viewPoint.rotation.eulerAngles.y,
+                                                  viewPoint.rotation.eulerAngles.z
+            );
+        } else
+        {
+            viewPoint.rotation = Quaternion.Euler(-verticalRotationStore,
+                                                  viewPoint.rotation.eulerAngles.y,
+                                                  viewPoint.rotation.eulerAngles.z
+            );
+        }
+
     }
 }

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // camera
     public Transform viewPoint;
+
+    // mouse sens
     public float mouseSensitivity = 1f;
     private float verticalRotationStore = 0f;
     private Vector2 mouseInput;
-
     public bool invertVerticalLook = false;
+
+    // movement
+    public float moveSpeed = 8f;
+    private Vector3 moveDirection, movement;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +54,14 @@ public class PlayerController : MonoBehaviour
                                                   viewPoint.rotation.eulerAngles.z
             );
         }
+
+        // move player
+        moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+        // normalize move direction to prevent faster diagonal movement
+        movement = ((transform.forward * moveDirection.z) + (transform.right * moveDirection.x)).normalized;
+
+        transform.position += movement * moveSpeed * Time.deltaTime;
 
     }
 }

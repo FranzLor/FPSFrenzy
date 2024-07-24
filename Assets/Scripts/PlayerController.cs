@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 8f;
     private Vector3 moveDirection, movement;
 
+    // character controller
+    public CharacterController characterController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
         // normalize move direction to prevent faster diagonal movement
         movement = ((transform.forward * moveDirection.z) + (transform.right * moveDirection.x)).normalized;
 
-        transform.position += movement * moveSpeed * Time.deltaTime;
+        characterController.Move(movement * moveSpeed * Time.deltaTime);
 
     }
 }

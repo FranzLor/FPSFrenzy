@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     // bullets
     public GameObject bulletImpact;
     private float shotCounter;
+    public float muzzleDisplayTime = 0.02f;
+    private float muzzleCounter = 0f;
     // overheating 
     public float maxHeat = 8f, coolRate = 4f, overheatCoolRate = 5f;
     private float heatCounter = 0f;
@@ -127,6 +129,18 @@ public class PlayerController : MonoBehaviour
         movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
 
         characterController.Move(movement * Time.deltaTime);
+
+        // deactivate muzzle flash before shooting frame
+        if (allGuns[selectedGun].muzzleFlash.activeInHierarchy)
+        {
+            muzzleCounter -= Time.deltaTime;
+
+            if (muzzleCounter <= 0)
+            {
+                allGuns[selectedGun].muzzleFlash.SetActive(false);
+            }
+        }
+        
 
         // gun overheating
         if (!overHeated)
@@ -235,8 +249,10 @@ public class PlayerController : MonoBehaviour
             overHeated = true;
 
             UIController.instance.overheatedMessage.gameObject.SetActive(true);
-        } 
+        }
 
+        allGuns[selectedGun].muzzleFlash.SetActive(true);
+        muzzleCounter = muzzleDisplayTime;
     }
 
     private void LateUpdate()
@@ -255,5 +271,8 @@ public class PlayerController : MonoBehaviour
 
         // show selected gun
         allGuns[selectedGun].gameObject.SetActive(true);
+
+        // makes sure to hide muzzle flash when switching guns
+        allGuns[selectedGun].muzzleFlash.SetActive(false);
     }
 }

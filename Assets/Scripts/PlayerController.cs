@@ -30,9 +30,10 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
     public LayerMask groundLayers;
 
-
+    // bullets
     public GameObject bulletImpact;
-
+    public float timeBetweenShots = 0.15f;
+    private float shotCounter;
 
 
     // Start is called before the first frame update
@@ -121,6 +122,16 @@ public class PlayerController : MonoBehaviour
             Shoot();
         }
 
+        if (Input.GetMouseButton(0))
+        {
+            shotCounter -= Time.deltaTime;
+
+            if (shotCounter <= 0)
+            {
+                Shoot();
+            }
+        }
+
         // unlock cursor using ESC
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -152,9 +163,9 @@ public class PlayerController : MonoBehaviour
 
             Destroy(bulletImpactObject, 10f);
         }
-        {
-            
-        }
+
+        shotCounter = timeBetweenShots;
+
     }
 
     private void LateUpdate()

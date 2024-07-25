@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     // character controller
     public CharacterController characterController;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,10 +77,22 @@ public class PlayerController : MonoBehaviour
             activeMoveSpeed = moveSpeed;
         }
 
+        float yVelocity = movement.y;
+
         // normalize move direction to prevent faster diagonal movement
         movement = ((transform.forward * moveDirection.z) + (transform.right * moveDirection.x)).normalized * activeMoveSpeed;
+        movement.y = yVelocity;
+
+        // fixes y velocity when grounded
+        if (characterController.isGrounded)
+        {
+            movement.y = 0f;
+        }
 
         characterController.Move(movement * Time.deltaTime);
+
+        // apply gravity
+        movement.y += Physics.gravity.y * Time.deltaTime;
 
     }
 

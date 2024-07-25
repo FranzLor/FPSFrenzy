@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayers;
 
 
+    public GameObject bulletImpact;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -139,7 +143,14 @@ public class PlayerController : MonoBehaviour
         // check if ray hits something
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
+            // fixes bullet impact flickering with hit.normal
+            GameObject bulletImpactObject = Instantiate(bulletImpact,
+                                                        hit.point + (hit.normal * 0.002f),
+                                                        Quaternion.LookRotation(hit.normal,
+                                                        Vector3.up)
+            );
 
+            Destroy(bulletImpactObject, 10f);
         }
         {
             

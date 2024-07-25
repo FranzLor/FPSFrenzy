@@ -453,7 +453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &222753102
 Transform:
   m_ObjectHideFlags: 0
@@ -1264,7 +1264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &648485368
 Transform:
   m_ObjectHideFlags: 0
@@ -2908,6 +2908,10 @@ MonoBehaviour:
   heatPerShot: 1
   coolRate: 4
   overheatCoolRate: 5
+  allGuns:
+  - {fileID: 2069435079}
+  - {fileID: 222753103}
+  - {fileID: 648485369}
 --- !u!143 &2012551754
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3025,7 +3029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2069435078
 Transform:
   m_ObjectHideFlags: 0

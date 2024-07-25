@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletImpact;
     public float timeBetweenShots = 0.15f;
     private float shotCounter;
+    // overheating 
+    public float maxHeat = 8f, heatPerShot = 1f, coolRate = 4f, overheatCoolRate = 5f;
+    private float heatCounter = 0f;
+    private bool overHeated = false;
 
 
     // Start is called before the first frame update
@@ -115,22 +119,43 @@ public class PlayerController : MonoBehaviour
         movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
 
         characterController.Move(movement * Time.deltaTime);
-        
-        // call shoot funct
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
-        }
 
-        if (Input.GetMouseButton(0))
+        // gun overheating
+        if (!overHeated)
         {
-            shotCounter -= Time.deltaTime;
-
-            if (shotCounter <= 0)
+            // call shoot funct
+            if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
             }
+
+            if (Input.GetMouseButton(0))
+            {
+                shotCounter -= Time.deltaTime;
+
+                if (shotCounter <= 0)
+                {
+                    Shoot();
+                }
+            }
+
+            heatCounter -= coolRate * Time.deltaTime;
+        } else
+        {
+            heatCounter -= overheatCoolRate * Time.deltaTime;
+            
+            if (heatCounter <= 0)
+            {
+                overHeated = false;
+            }
         }
+
+        if (heatCounter < 0)
+        {
+            heatCounter = 0f;
+        }
+        
+       
 
         // unlock cursor using ESC
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -165,6 +190,14 @@ public class PlayerController : MonoBehaviour
         }
 
         shotCounter = timeBetweenShots;
+
+        heatCounter += heatPerShot;
+
+        if (heatCounter >= maxHeat)
+        {
+            heatCounter = maxHeat;
+            overHeated = true;
+        } 
 
     }
 

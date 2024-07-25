@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // camera
     public Transform viewPoint;
+    private Camera camera;
 
     // mouse sens
     public float mouseSensitivity = 1f;
@@ -14,7 +15,8 @@ public class PlayerController : MonoBehaviour
     public bool invertVerticalLook = false;
 
     // movement
-    public float moveSpeed = 8f;
+    public float moveSpeed = 8f, runSpeed = 12f;
+    private float activeMoveSpeed = 0f;
     private Vector3 moveDirection, movement;
 
     // character controller
@@ -25,6 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         // hide and lock cursor at start
         Cursor.lockState = CursorLockMode.Locked;
+
+        camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -61,10 +65,28 @@ public class PlayerController : MonoBehaviour
         // move player
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
+        // check if player is running
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // running
+           activeMoveSpeed = runSpeed;
+        } else
+        {
+            // walking
+            activeMoveSpeed = moveSpeed;
+        }
+
         // normalize move direction to prevent faster diagonal movement
-        movement = ((transform.forward * moveDirection.z) + (transform.right * moveDirection.x)).normalized;
+        movement = ((transform.forward * moveDirection.z) + (transform.right * moveDirection.x)).normalized * activeMoveSpeed;
 
-        characterController.Move(movement * moveSpeed * Time.deltaTime);
+        characterController.Move(movement * Time.deltaTime);
 
+    }
+
+
+    private void LateUpdate()
+    {
+        camera.transform.position = viewPoint.position;
+        camera.transform.rotation = viewPoint.rotation;
     }
 }

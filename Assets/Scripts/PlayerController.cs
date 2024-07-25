@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     // character controller
     public CharacterController characterController;
 
+    // jumping
+    public float jumpForce = 8f;
+    public float gravityModifier = 2.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,10 +93,17 @@ public class PlayerController : MonoBehaviour
             movement.y = 0f;
         }
 
-        characterController.Move(movement * Time.deltaTime);
+        // check player jump input
+        if (Input.GetButtonDown("Jump"))
+        {
+            movement.y = jumpForce;
+        }
+
 
         // apply gravity
-        movement.y += Physics.gravity.y * Time.deltaTime;
+        movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
+
+        characterController.Move(movement * Time.deltaTime);
 
     }
 

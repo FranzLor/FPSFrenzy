@@ -110,6 +110,12 @@ public class PlayerController : MonoBehaviour
         movement.y += Physics.gravity.y * Time.deltaTime * gravityModifier;
 
         characterController.Move(movement * Time.deltaTime);
+        
+        // call shoot funct
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
 
         // unlock cursor using ESC
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -124,6 +130,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Shoot()
+    {
+        // create ray from camera
+        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        ray.origin = camera.transform.position;
+
+        // check if ray hits something
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+
+        }
+        {
+            
+        }
+    }
 
     private void LateUpdate()
     {

@@ -25,6 +25,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     public GameObject serverScreen;
     public TMP_Text serverNameText;
 
+    public GameObject errorScreen;
+    public TMP_Text errorText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         menuButtons.SetActive(false);
         createServerScreen.SetActive(false);
         serverScreen.SetActive(false);
+        errorScreen.SetActive(false);
     }
 
     public override void OnConnectedToMaster()
@@ -91,5 +95,33 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         // set server name text
         serverNameText.text = PhotonNetwork.CurrentRoom.Name;
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        errorText.text = "Failed to Create Server: " + message;
+        CloseMenus();
+        errorScreen.SetActive(true);
+    }
+
+    public void CloseErrorScreen()
+    {
+        CloseMenus();
+        menuButtons.SetActive(true);
+    }
+
+    public void LeaveServer()
+    {
+        PhotonNetwork.LeaveRoom();
+
+        CloseMenus();
+        loadingText.text = "Leaving Server...";
+        loadingScreen.SetActive(true);
+    }
+
+    public override void OnLeftRoom()
+    {
+        CloseMenus();
+        menuButtons.SetActive(true);
     }
 }

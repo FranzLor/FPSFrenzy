@@ -18,6 +18,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public GameObject menuButtons;
 
+    public GameObject createServerScreen;
+    public TMP_InputField serverNameInput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         // close all menus elements
         loadingScreen.SetActive(false);
         menuButtons.SetActive(false);
+        createServerScreen.SetActive(false);
 
     }
 
@@ -52,9 +56,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         menuButtons.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenServerCreate()
     {
-        
+        CloseMenus();
+        createServerScreen.SetActive(true);
     }
 }

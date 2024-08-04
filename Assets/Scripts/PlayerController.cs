@@ -210,6 +210,16 @@ public class PlayerController : MonoBehaviour
 
             SwitchGun();
         }
+
+        // switch guns using num keys
+        for (int i = 0; i < allGuns.Length; i++)
+        {
+            if (Input.GetKeyDown((i + 1).ToString()))
+            {
+                selectedGun = i;
+                SwitchGun();
+            }
+        }
        
 
         // unlock cursor using ESC

@@ -22,6 +22,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     public GameObject createServerScreen;
     public TMP_InputField serverNameInput;
 
+    public GameObject serverScreen;
+    public TMP_Text serverNameText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +44,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         loadingScreen.SetActive(false);
         menuButtons.SetActive(false);
         createServerScreen.SetActive(false);
-
+        serverScreen.SetActive(false);
     }
 
     public override void OnConnectedToMaster()
@@ -79,5 +82,14 @@ public class Launcher : MonoBehaviourPunCallbacks
             loadingScreen.SetActive(true);
         }
 
+    }
+
+    public override void OnJoinedRoom()
+    {
+        CloseMenus();
+        serverScreen.SetActive(true);
+
+        // set server name text
+        serverNameText.text = PhotonNetwork.CurrentRoom.Name;
     }
 }

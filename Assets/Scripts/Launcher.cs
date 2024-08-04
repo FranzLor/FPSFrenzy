@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -60,5 +61,23 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         CloseMenus();
         createServerScreen.SetActive(true);
+    }
+
+    public void CreateServer()
+    {
+        if (!string.IsNullOrEmpty(serverNameInput.text))
+        {
+            RoomOptions options = new RoomOptions();
+            // max players per server - change as needed
+            options.MaxPlayers = 2;
+
+            // creates server based on options
+            PhotonNetwork.CreateRoom(serverNameInput.text, options);
+
+            CloseMenus();
+            loadingText.text = "Creating Server...";
+            loadingScreen.SetActive(true);
+        }
+
     }
 }

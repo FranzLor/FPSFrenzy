@@ -3874,7 +3874,7 @@ MonoBehaviour:
   errorScreen: {fileID: 1457762114}
   errorText: {fileID: 372792296}
   serverBrowserScreen: {fileID: 2105695848}
-  serverButton: {fileID: 688102012}
+  theServerButton: {fileID: 688102012}
 --- !u!1001 &708063270
 PrefabInstance:
   m_ObjectHideFlags: 0

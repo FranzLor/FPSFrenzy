@@ -29,7 +29,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public TMP_Text errorText;
 
     public GameObject serverBrowserScreen;
-    public ServerButton serverButton;
+    public ServerButton theServerButton;
     private List<ServerButton> serverButtons = new List<ServerButton>();
 
     // Start is called before the first frame update
@@ -142,6 +142,35 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         CloseMenus();
         menuButtons.SetActive(true);
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> serverList)
+    {
+        foreach (ServerButton sb in serverButtons)
+        {
+            // destroy buttons first 
+            Destroy(sb.gameObject);
+        }
+        // only removes ref if put before destroy
+        serverButtons.Clear();
+
+        // hide original server button template - always being copied
+        theServerButton.gameObject.SetActive(false);
+
+
+        for (int i = 0; i < serverList.Count; i++) 
+        {
+            // only show servers that are not full and not removed from list
+            if (serverList[i].PlayerCount != serverList[i].MaxPlayers && !serverList[i].RemovedFromList)
+            {
+                ServerButton newButton = Instantiate(theServerButton, theServerButton.transform.parent);
+                newButton.SetButtonDetails(serverList[i]);
+                newButton.gameObject.SetActive(true);
+
+                // add to list of buttons
+                serverButtons.Add(newButton);
+            }
+        }
     }
 
 }

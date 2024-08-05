@@ -28,6 +28,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     public GameObject errorScreen;
     public TMP_Text errorText;
 
+    public GameObject serverBrowserScreen;
+    public ServerButton serverButton;
+    private List<ServerButton> serverButtons = new List<ServerButton>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         createServerScreen.SetActive(false);
         serverScreen.SetActive(false);
         errorScreen.SetActive(false);
+        serverBrowserScreen.SetActive(false);
     }
 
     public override void OnConnectedToMaster()
@@ -124,4 +129,19 @@ public class Launcher : MonoBehaviourPunCallbacks
         CloseMenus();
         menuButtons.SetActive(true);
     }
+
+    public void OpenServerBrowser()
+    {
+        CloseMenus();
+        serverBrowserScreen.SetActive(true);
+
+        // no loading screen needed here 
+    }
+
+    public void CloseServerBrowser()
+    {
+        CloseMenus();
+        menuButtons.SetActive(true);
+    }
+
 }

@@ -2689,6 +2689,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1538273752261064209, guid: 538b559633151a146bddd33879fb3038, type: 3}
+--- !u!1 &525654191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137553508840770877, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+  m_PrefabInstance: {fileID: 688102006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &573885063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3597,6 +3602,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3556384365368672795, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
   m_PrefabInstance: {fileID: 672353787}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &677846125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 356579882227693787, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+  m_PrefabInstance: {fileID: 688102006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &688102006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3608,6 +3624,18 @@ PrefabInstance:
     - target: {fileID: 137553508840770877, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
       propertyPath: m_Name
       value: Server Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 356579882227693787, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_text
+      value: Server Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 356579882227693787, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_fontSize
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 356579882227693787, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3556384365368672795, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
       propertyPath: m_Pivot.x
@@ -3692,13 +3720,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 137553508840770877, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 688102012}
   m_SourcePrefab: {fileID: 100100000, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
 --- !u!224 &688102007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3556384365368672795, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
   m_PrefabInstance: {fileID: 688102006}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &688102012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525654191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e7c3432d39f794a8a80c5322ddbf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 677846125}
 --- !u!1 &692332460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,6 +3873,8 @@ MonoBehaviour:
   serverNameText: {fileID: 28856704}
   errorScreen: {fileID: 1457762114}
   errorText: {fileID: 372792296}
+  serverBrowserScreen: {fileID: 2105695848}
+  serverButton: {fileID: 688102012}
 --- !u!1001 &708063270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4627,7 +4673,7 @@ PrefabInstance:
       objectReference: {fileID: 692332465}
     - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LeaveServer
+      value: CloseServerBrowser
       objectReference: {fileID: 0}
     - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -12268,6 +12314,22 @@ PrefabInstance:
     - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 692332465}
+    - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenServerBrowser
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Launcher, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049676663728837144, guid: 2c7097e729a617941a55ce3041e48e8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

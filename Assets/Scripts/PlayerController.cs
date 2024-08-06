@@ -261,6 +261,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
             if (hit.collider.gameObject.tag == "Player")
             {
                 PhotonNetwork.Instantiate(playerHitImpact.name, hit.point, Quaternion.identity);
+
+                // deal damage to player on all clients
+                hit.collider.gameObject.GetPhotonView().RPC("DealDamage", RpcTarget.All, photonView.Owner.NickName);
             } 
             // hits other objs
             else
@@ -301,6 +304,21 @@ public class PlayerController : MonoBehaviourPunCallbacks
             camera.transform.position = viewPoint.position;
             camera.transform.rotation = viewPoint.rotation;
         }
+    }
+
+    // called when player is hit on every client
+    [PunRPC]
+    public void DealDamage(string damager)
+    {
+        TakeDamage(damager);
+    }
+
+    public void TakeDamage(string damager)
+    {
+        Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
+
+        gameObject.SetActive(false);
+
     }
 
     void SwitchGun()

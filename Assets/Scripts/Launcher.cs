@@ -33,6 +33,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     public ServerButton theServerButton;
     private List<ServerButton> serverButtons = new List<ServerButton>();
 
+    public GameObject nameInputScreen;
+    public TMP_InputField nameInput;
+    private bool hasSetName = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         serverScreen.SetActive(false);
         errorScreen.SetActive(false);
         serverBrowserScreen.SetActive(false);
+        nameInputScreen.SetActive(false);
     }
 
     public override void OnConnectedToMaster()
@@ -71,6 +76,24 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         // set player name with random num
         PhotonNetwork.NickName = "Player" + Random.Range(0, 1000).ToString();
+
+        // sets player name first time
+        if (!hasSetName)
+        {
+            CloseMenus();
+            nameInputScreen.SetActive(true);
+
+            // load player name prefs
+            if (PlayerPrefs.HasKey("PlayerName"))
+            {
+                nameInput.text = PlayerPrefs.GetString("PlayerName");
+            }
+        }
+        // makes sure to keep player name if already set
+        else
+        {
+            PhotonNetwork.NickName = PlayerPrefs.GetString("PlayerName");
+        }
     }
 
     public void OpenServerCreate()
@@ -207,6 +230,23 @@ public class Launcher : MonoBehaviourPunCallbacks
         CloseMenus();
         loadingText.text = "Joining Server...";
         loadingScreen.SetActive(true);
+    }
+
+    public void SetUsername()
+    {
+        // set player name
+        if (!string.IsNullOrEmpty(nameInput.text))
+        {
+            PhotonNetwork.NickName = nameInput.text;
+
+            // saves player name prefs
+            PlayerPrefs.SetString("PlayerName", nameInput.text);
+
+            CloseMenus();
+            menuButtons.SetActive(true);
+
+            hasSetName = true;
+        }
     }
 
     public void QuitGame()

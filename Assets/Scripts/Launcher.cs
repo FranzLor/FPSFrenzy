@@ -182,4 +182,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         loadingScreen.SetActive(true);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

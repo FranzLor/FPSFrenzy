@@ -37,6 +37,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     public TMP_InputField nameInput;
     private bool hasSetName = false;
 
+    public string levelToPlay;
+    public GameObject startButton;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,8 +68,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-
         PhotonNetwork.JoinLobby();
+
+        // syncs scene for all players - start game
+        PhotonNetwork.AutomaticallySyncScene = true;
+
         loadingText.text = "Connected to Server!";
     }
 
@@ -129,6 +136,16 @@ public class Launcher : MonoBehaviourPunCallbacks
         serverNameText.text = PhotonNetwork.CurrentRoom.Name;
 
         ListPlayers();
+
+        // makes sure host is only one that can start game
+        if (PhotonNetwork.IsMasterClient)
+        {
+            startButton.SetActive(true);
+        }
+        else
+        {
+            startButton.SetActive(false);
+        }
     }
 
     private void ListPlayers()
@@ -247,6 +264,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
             hasSetName = true;
         }
+    }
+
+    public void StartGame()
+    {
+        PhotonNetwork.LoadLevel(levelToPlay);
     }
 
     public void QuitGame()

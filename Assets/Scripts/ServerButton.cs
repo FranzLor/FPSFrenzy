@@ -17,4 +17,9 @@ public class ServerButton : MonoBehaviour
         // set button text to server name
         buttonText.text = info.Name;
     }
+
+    public void OpenServer()
+    {
+        Launcher.instance.JoinServer(info);
+    }
 }

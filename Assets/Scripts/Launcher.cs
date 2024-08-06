@@ -40,6 +40,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     public string levelToPlay;
     public GameObject startButton;
 
+    public GameObject serverTestButton;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +55,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         // connect to photon server
         PhotonNetwork.ConnectUsingSettings();
+
+        // only show server test button in editor - saves time
+#if UNITY_EDITOR
+        serverTestButton.SetActive(true);
+#endif
     }
 
     void CloseMenus()
@@ -282,6 +290,15 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             startButton.SetActive(false);
         }
+    }
+
+    // creates testing server - not needed for final game
+    public void QuickJoin()
+    {
+        PhotonNetwork.CreateRoom("Test Server");
+        CloseMenus();
+        loadingText.text = "Creating Test Server...";
+        loadingScreen.SetActive(true);
     }
 
     public void QuitGame()

@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         SwitchGun();
         
         // moved to player spawner script
+
         // gets spawn point from funct
         //Transform newTransform = SpawnManager.instance.GetSpawnPoint();
         //transform.position = newTransform.position;

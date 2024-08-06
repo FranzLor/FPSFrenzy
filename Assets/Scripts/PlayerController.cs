@@ -57,11 +57,12 @@ public class PlayerController : MonoBehaviour
         UIController.instance.weaponOverheatSlider.maxValue = maxHeat;
 
         SwitchGun();
-
+        
+        // moved to player spawner script
         // gets spawn point from funct
-        Transform newTransform = SpawnManager.instance.GetSpawnPoint();
-        transform.position = newTransform.position;
-        transform.rotation = newTransform.rotation;
+        //Transform newTransform = SpawnManager.instance.GetSpawnPoint();
+        //transform.position = newTransform.position;
+        //transform.rotation = newTransform.rotation;
 
     }
 

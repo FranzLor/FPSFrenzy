@@ -662,6 +662,7 @@ MonoBehaviour:
   playerHitImpact: {fileID: 5147800305683216878, guid: 91b2b0aa5d1e86e4c93a927e63365d8c, type: 3}
   maxHealth: 100
   anim: {fileID: 5920422255350719453}
+  playerModel: {fileID: 5920422255327204806}
 --- !u!143 &2475583524662096406
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1244,6 +1245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Character
       objectReference: {fileID: 0}
+    - target: {fileID: 1046021142964596803, guid: 38074321d88bbe3438955d413494dac3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1046021142964628577, guid: 38074321d88bbe3438955d413494dac3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0058960915
@@ -1347,6 +1352,11 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!1 &5920422255327204806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1046021142964596803, guid: 38074321d88bbe3438955d413494dac3, type: 3}
+  m_PrefabInstance: {fileID: 6678176356773897605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5920422255327693284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1046021142964628577, guid: 38074321d88bbe3438955d413494dac3, type: 3}

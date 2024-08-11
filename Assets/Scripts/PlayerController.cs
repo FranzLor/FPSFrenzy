@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private int currentHealth;
 
     public Animator anim;
+    public GameObject playerModel;
 
 
 
@@ -70,9 +71,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
         // set health to max at start
         currentHealth = maxHealth;
 
-        // health slider
-        UIController.instance.healthSlider.maxValue = maxHealth;
-        UIController.instance.healthSlider.value = currentHealth;
+        // if first person, hide player model
+        if (photonView.IsMine)
+        {
+            playerModel.SetActive(false);
+
+            // health slider
+            // updates health slider value per player
+            UIController.instance.healthSlider.maxValue = maxHealth;
+            UIController.instance.healthSlider.value = currentHealth;
+        }
         
         // moved to player spawner script
 

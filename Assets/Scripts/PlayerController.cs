@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int maxHealth = 100;
     private int currentHealth;
 
+    public Animator anim;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -241,6 +244,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     SwitchGun();
                 }
             }
+
+            // animation parameters for player
+            anim.SetBool("grounded", isGrounded);
+            anim.SetFloat("speed", moveDirection.magnitude);
 
 
             // unlock cursor using ESC

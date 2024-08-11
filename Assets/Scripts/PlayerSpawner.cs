@@ -15,6 +15,8 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject playerPrefab;
     private GameObject player;
 
+    public GameObject deathFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +36,15 @@ public class PlayerSpawner : MonoBehaviour
 
         // save player game object for deleting later
         player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    public void Die()
+    {
+        // play death fx
+        PhotonNetwork.Instantiate(deathFX.name, player.transform.position, Quaternion.identity);
+
+        PhotonNetwork.Destroy(player);
+
+        SpawnPlayer();
     }
 }

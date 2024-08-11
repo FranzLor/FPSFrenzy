@@ -2040,6 +2040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5858460581593023625, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+  deathFX: {fileID: 3930365059952976096, guid: ab761feaf16de17418e94b2448307d1f, type: 3}
 --- !u!4 &365527279
 Transform:
   m_ObjectHideFlags: 0
@@ -2049,7 +2050,7 @@ Transform:
   m_GameObject: {fileID: 365527277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.361481, y: 4.3055, z: -14.525954}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

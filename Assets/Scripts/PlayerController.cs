@@ -296,6 +296,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
         muzzleCounter = muzzleDisplayTime;
     }
 
+    // called when player is hit on every client
+    [PunRPC]
+    public void DealDamage(string damager)
+    {
+        // keep function small for network load
+        TakeDamage(damager);
+    }
+
+    public void TakeDamage(string damager)
+    {
+        if (photonView.IsMine)
+        {
+            //Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
+            PlayerSpawner.instance.Die();
+        }
+    }
+
     private void LateUpdate()
     {
         // check if player is ours
@@ -304,21 +321,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
             camera.transform.position = viewPoint.position;
             camera.transform.rotation = viewPoint.rotation;
         }
-    }
-
-    // called when player is hit on every client
-    [PunRPC]
-    public void DealDamage(string damager)
-    {
-        TakeDamage(damager);
-    }
-
-    public void TakeDamage(string damager)
-    {
-        Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
-
-        gameObject.SetActive(false);
-
     }
 
     void SwitchGun()

@@ -4482,6 +4482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5858460581593023625, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+  deathFX: {fileID: 9046170733277267803, guid: ab761feaf16de17418e94b2448307d1f, type: 3}
 --- !u!4 &959839381
 Transform:
   m_ObjectHideFlags: 0

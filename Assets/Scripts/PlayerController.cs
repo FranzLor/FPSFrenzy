@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public GameObject playerHitImpact;
 
+    public int maxHealth = 100;
+    private int currentHealth;
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         UIController.instance.weaponOverheatSlider.maxValue = maxHeat;
 
         SwitchGun();
+
+        // set health to max at start
+        currentHealth = maxHealth;
         
         // moved to player spawner script
 
@@ -263,7 +269,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 PhotonNetwork.Instantiate(playerHitImpact.name, hit.point, Quaternion.identity);
 
                 // deal damage to player on all clients
-                hit.collider.gameObject.GetPhotonView().RPC("DealDamage", RpcTarget.All, photonView.Owner.NickName);
+                hit.collider.gameObject.GetPhotonView().RPC(
+                    "DealDamage", 
+                    RpcTarget.All, 
+                    photonView.Owner.NickName,
+                    allGuns[selectedGun].shotDamage
+                );
             } 
             // hits other objs
             else
@@ -298,18 +309,26 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     // called when player is hit on every client
     [PunRPC]
-    public void DealDamage(string damager)
+    public void DealDamage(string damager, int damageAmount)
     {
         // keep function small for network load
-        TakeDamage(damager);
+        TakeDamage(damager, damageAmount);
     }
 
-    public void TakeDamage(string damager)
+    public void TakeDamage(string damager, int damageAmount)
     {
         if (photonView.IsMine)
         {
-            //Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
-            PlayerSpawner.instance.Die(damager);
+            currentHealth -= damageAmount;
+
+            if (currentHealth <= 0)
+            {
+                // make sure health is not negative
+                currentHealth = 0;
+
+                //Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
+                PlayerSpawner.instance.Die(damager);
+            }
         }
     }
 

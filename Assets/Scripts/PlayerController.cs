@@ -69,7 +69,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         // set slider max value
         UIController.instance.weaponOverheatSlider.maxValue = maxHeat;
 
-        SwitchGun();
+        // set gun, use RPC to set gun for all players clients
+        //SwitchGun();
+        photonView.RPC("SetGun", RpcTarget.All, selectedGun);
 
         // set health to max at start
         currentHealth = maxHealth;
@@ -237,7 +239,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 {
                     selectedGun = 0;
                 }
-                SwitchGun();
+                //SwitchGun();
+                photonView.RPC("SetGun", RpcTarget.All, selectedGun);
 
             }
             else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0f)
@@ -249,7 +252,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     selectedGun = allGuns.Length - 1;
                 }
 
-                SwitchGun();
+                //SwitchGun();
+                photonView.RPC("SetGun", RpcTarget.All, selectedGun);
             }
 
             // switch guns using num keys
@@ -258,7 +262,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 if (Input.GetKeyDown((i + 1).ToString()))
                 {
                     selectedGun = i;
-                    SwitchGun();
+                    //SwitchGun();
+                    photonView.RPC("SetGun", RpcTarget.All, selectedGun);
                 }
             }
 
@@ -386,5 +391,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         // makes sure to hide muzzle flash when switching guns
         allGuns[selectedGun].muzzleFlash.SetActive(false);
+    }
+
+    // server updates which guns switched for players
+    [PunRPC]
+    public void SetGun(int gunToSwitch)
+    {
+        // check if gun to switch is within array length. switch
+        if (gunToSwitch < allGuns.Length)
+        {
+            selectedGun = gunToSwitch;
+            SwitchGun();
+        }
     }
 }

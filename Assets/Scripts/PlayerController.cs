@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         // set health to max at start
         currentHealth = maxHealth;
+
+        // health slider
+        UIController.instance.healthSlider.maxValue = maxHealth;
+        UIController.instance.healthSlider.value = currentHealth;
         
         // moved to player spawner script
 
@@ -329,6 +333,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 //Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
                 PlayerSpawner.instance.Die(damager);
             }
+
+            // set health slider value
+            UIController.instance.healthSlider.value = currentHealth;
         }
     }
 

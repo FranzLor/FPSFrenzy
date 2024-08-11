@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
     public GameObject deathScreen;
     public TMP_Text deathText;
 
+    public Slider healthSlider;
+
 
     // Start is called before the first frame update
     void Start()

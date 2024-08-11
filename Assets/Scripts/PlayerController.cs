@@ -50,8 +50,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int maxHealth = 100;
     private int currentHealth;
 
+    // player animations
     public Animator anim;
     public GameObject playerModel;
+    public Transform modelGunPoint, gunHolder;
+
 
 
 
@@ -80,6 +83,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
             // updates health slider value per player
             UIController.instance.healthSlider.maxValue = maxHealth;
             UIController.instance.healthSlider.value = currentHealth;
+        } else
+        {
+            // set gun position for gun adjuster holder - zero transform pos
+            gunHolder.parent = modelGunPoint;
+            gunHolder.localPosition = Vector3.zero;
+            gunHolder.localRotation = Quaternion.identity;
         }
         
         // moved to player spawner script

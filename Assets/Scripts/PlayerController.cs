@@ -306,7 +306,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     "DealDamage", 
                     RpcTarget.All, 
                     photonView.Owner.NickName,
-                    allGuns[selectedGun].shotDamage
+                    allGuns[selectedGun].shotDamage,
+                    PhotonNetwork.LocalPlayer.ActorNumber
                 );
             } 
             // hits other objs
@@ -342,13 +343,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     // called when player is hit on every client
     [PunRPC]
-    public void DealDamage(string damager, int damageAmount)
+    public void DealDamage(string damager, int damageAmount, int actor)
     {
         // keep function small for network load
-        TakeDamage(damager, damageAmount);
+        TakeDamage(damager, damageAmount, actor);
     }
 
-    public void TakeDamage(string damager, int damageAmount)
+    public void TakeDamage(string damager, int damageAmount, int actor)
     {
         if (photonView.IsMine)
         {
@@ -361,6 +362,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
                 //Debug.Log(photonView.Owner.NickName + " Hit By: " + damager);
                 PlayerSpawner.instance.Die(damager);
+
+                // updates stats for player who killed, increment 1 kill
+                MatchManager.instance.ChangeStatSend(actor, 0, 1);
             }
 
             // set health slider value

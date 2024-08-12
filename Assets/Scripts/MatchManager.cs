@@ -43,7 +43,27 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
     public void OnEvent(EventData photonEvent)
     {
+        // make sure event is not more than photon's reserved events
+        if (photonEvent.Code < 200)
+        {
+            // cast event code to EventCodes enum
+            EventCodes theEvent = (EventCodes)photonEvent.Code;
+            object[] data = (object[])photonEvent.CustomData;
 
+            // switch statement to handle different events
+            switch (theEvent)
+            {
+                case EventCodes.NewPlayer:
+                    NewPlayerReceive(data);
+                    break;
+                case EventCodes.ListPlayers:
+                    ListPlayerReceive(data);
+                    break;
+                case EventCodes.ChangeStat:
+                    ChangeStatReceive(data);
+                    break;
+            }
+        }
     }
 
     public override void OnEnable()
@@ -56,6 +76,37 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         // remove from list of callback targets, stop listening for events
         PhotonNetwork.RemoveCallbackTarget(this);
+    }
+
+
+    public void NewPlayerSend()
+    {
+
+    }
+
+    public void NewPlayerReceive(object[] dataReceived)
+    {
+
+    }
+
+    public void ListPlayerSend()
+    {
+
+    }
+
+    public void ListPlayerReceive(object[] dataReceived)
+    {
+
+    }
+
+    public void ChangeStatSend()
+    {
+
+    }
+
+    public void ChangeStatReceive(object[] dataReceived)
+    {
+
     }
 }
 

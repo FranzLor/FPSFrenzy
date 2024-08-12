@@ -15,7 +15,15 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         instance = this;
     }
 
+    public enum EventCodes : byte
+    {
+        NewPlayer,
+        ListPlayers,
+        ChangeStat
+    }
 
+    public List<PlayerInfo> allPlayers = new List<PlayerInfo>();
+    private int index;
 
     // Start is called before the first frame update
     void Start()
@@ -48,5 +56,21 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         // remove from list of callback targets, stop listening for events
         PhotonNetwork.RemoveCallbackTarget(this);
+    }
+}
+
+
+[System.Serializable]
+public class PlayerInfo
+{
+    public string playerName;
+    public int actor, kills, deaths;
+
+    public PlayerInfo(string playerName, int actor, int kills, int deaths)
+    {
+        playerName = this.playerName;
+        actor = this.actor;
+        kills = this.kills;
+        deaths = this.deaths;
     }
 }

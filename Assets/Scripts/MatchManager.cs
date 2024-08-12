@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 
-public class MatchManager : MonoBehaviour
+public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     public static MatchManager instance;
 
@@ -29,5 +31,22 @@ public class MatchManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnEvent(EventData photonEvent)
+    {
+
+    }
+
+    public override void OnEnable()
+    {
+        // add to list of callback targets, listen for events
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    public override void OnDisable()
+    {
+        // remove from list of callback targets, stop listening for events
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 }

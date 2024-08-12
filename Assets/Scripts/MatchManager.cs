@@ -32,6 +32,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             // loads up main menu scene
             SceneManager.LoadScene(0);
+        } else
+        {
+            NewPlayerSend(PhotonNetwork.NickName);
         }
     }
 
@@ -79,14 +82,37 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     }
 
 
-    public void NewPlayerSend()
+    public void NewPlayerSend(string username)
     {
+        // package contains username, actor number, kills, deaths
+        object[] package = new object[4];
+        package[0] = username;
+        package[1] = PhotonNetwork.LocalPlayer.ActorNumber;
 
+        // set kills and deaths 0 for new player
+        package[2] = 0;
+        package[3] = 0;
+
+        // send event to master client
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.NewPlayer,
+            package,
+            new RaiseEventOptions { Receivers = ReceiverGroup.MasterClient },
+            new SendOptions { Reliability = true }
+        );
     }
 
     public void NewPlayerReceive(object[] dataReceived)
     {
+        // create new player object with data received, converted to correct types
+        PlayerInfo player = new PlayerInfo(
+            (string)dataReceived[0],
+            (int)dataReceived[1],
+            (int)dataReceived[2],
+            (int)dataReceived[3]
+        );
 
+        allPlayers.Add(player);
     }
 
     public void ListPlayerSend()

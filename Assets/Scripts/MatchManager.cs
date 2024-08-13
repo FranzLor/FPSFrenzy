@@ -26,6 +26,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     // used for referencing player in list, faster than searching list
     private int index;
 
+    private List<LeaderboardPlayer> leaderboardPlayers = new List<LeaderboardPlayer>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,19 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     // Update is called once per frame
     void Update()
     {
-        
+        // show leaderboard when tab key is pressed
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            // deactivate if already active
+            if (UIController.instance.leaderboard.activeInHierarchy)
+            {
+                UIController.instance.leaderboard.SetActive(false);
+            }
+            else
+            {
+                ShowLeaderboard();
+            }
+        }
     }
 
     public void OnEvent(EventData photonEvent)
@@ -232,6 +246,35 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             UIController.instance.killsText.text = "Kills - 0";
             UIController.instance.deathsText.text = "Deaths - 0";
+        }
+    }
+
+
+    void ShowLeaderboard()
+    {
+        UIController.instance.leaderboard.SetActive(true);
+
+        // clear all leaderboard players
+        foreach (LeaderboardPlayer lp in leaderboardPlayers)
+        {
+            Destroy(lp.gameObject);
+        }
+        leaderboardPlayers.Clear();
+
+        UIController.instance.leaderboardPlayerDisplay.gameObject.SetActive(false);
+
+        // loop through all players and display stats for each player
+        foreach (PlayerInfo player in allPlayers)
+        {
+            LeaderboardPlayer newPlayerDisplay = Instantiate(
+                UIController.instance.leaderboardPlayerDisplay,
+                UIController.instance.leaderboardPlayerDisplay.transform.parent
+            );
+
+            newPlayerDisplay.SetDetails(player.playerName, player.kills, player.deaths);
+            newPlayerDisplay.gameObject.SetActive(true);
+
+            leaderboardPlayers.Add(newPlayerDisplay);
         }
     }
 }

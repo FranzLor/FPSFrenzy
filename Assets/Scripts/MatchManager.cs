@@ -227,6 +227,12 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 {
                     UpdateStatsDisplay();
                 }
+
+                // fixes leaderboard not updating while open
+                if (UIController.instance.leaderboard.activeInHierarchy)
+                {
+                    ShowLeaderboard();
+                }
                 break;
             }
         }
@@ -263,8 +269,11 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
         UIController.instance.leaderboardPlayerDisplay.gameObject.SetActive(false);
 
-        // loop through all players and display stats for each player
-        foreach (PlayerInfo player in allPlayers)
+        // sort players by kills
+        List<PlayerInfo> sorted = SortPlayers(allPlayers);
+
+        // loop through all players and display stats for each player, sorted by kills
+        foreach (PlayerInfo player in sorted)
         {
             LeaderboardPlayer newPlayerDisplay = Instantiate(
                 UIController.instance.leaderboardPlayerDisplay,
@@ -276,6 +285,36 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
 
             leaderboardPlayers.Add(newPlayerDisplay);
         }
+    }
+
+    // purely to sort highest kills to lowest kills
+    private List<PlayerInfo> SortPlayers(List<PlayerInfo> players)
+    {
+        List<PlayerInfo> sorted = new List<PlayerInfo>();
+
+        while (sorted.Count < players.Count)
+        {
+            // -1 to ensure first player is always selected
+            int highest = -1;
+            PlayerInfo selectedPlayer = players[0];
+
+            foreach (PlayerInfo player in players)
+            {
+                // make sure player is not already in sorted list
+                if (!sorted.Contains(player))
+                {
+                    // if player has more kills than current highest, set player as selection
+                    if (player.kills > highest)
+                    {
+                        selectedPlayer = player;
+                        highest = player.kills;
+                    }
+                }
+            }
+            sorted.Add(selectedPlayer);
+        }
+
+        return sorted;
     }
 }
 

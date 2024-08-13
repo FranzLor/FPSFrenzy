@@ -208,8 +208,30 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                         break;
                 }
 
+                // if player is local player, update stats display
+                if (i == index)
+                {
+                    UpdateStatsDisplay();
+                }
                 break;
             }
+        }
+    }
+
+    // updates and displays stats for player, kills and deaths
+    public void UpdateStatsDisplay()
+    {
+        // makes sure player is in list
+        if (allPlayers.Count > index)
+        {
+            UIController.instance.killsText.text = "Kills - " + allPlayers[index].kills;
+            UIController.instance.deathsText.text = "Deaths - " + allPlayers[index].deaths;
+        } 
+        // if player is not in list, display 0 kills and deaths
+        else
+        {
+            UIController.instance.killsText.text = "Kills - 0";
+            UIController.instance.deathsText.text = "Deaths - 0";
         }
     }
 }
@@ -230,4 +252,6 @@ public class PlayerInfo
         this.deaths = deaths;
 
     }
+
+
 }

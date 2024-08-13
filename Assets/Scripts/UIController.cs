@@ -23,6 +23,8 @@ public class UIController : MonoBehaviour
 
     public Slider healthSlider;
 
+    public TMP_Text killsText, deathsText;
+
 
     // Start is called before the first frame update
     void Start()

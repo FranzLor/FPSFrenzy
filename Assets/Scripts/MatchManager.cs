@@ -19,7 +19,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         NewPlayer,
         ListPlayers,
-        ChangeStat
+        ChangeStat,
+        NextMatch
     }
 
     public List<PlayerInfo> allPlayers = new List<PlayerInfo>();
@@ -40,6 +41,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public Transform mapCameraPoint;
     public GameState gameState = GameState.Waiting;
     public float waitAfterEnding = 10f;
+
+    public bool constantGames = false;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +97,9 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                     break;
                 case EventCodes.ChangeStat:
                     ChangeStatReceive(data);
+                    break;
+                case EventCodes.NextMatch:
+                    NextMatchReceive();
                     break;
             }
         }
@@ -413,9 +419,51 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         yield return new WaitForSeconds(waitAfterEnding);
 
-        PhotonNetwork.AutomaticallySyncScene = false;
+        // if constant games is off, go back to menu 
+        if (!constantGames)
+        {
+            PhotonNetwork.AutomaticallySyncScene = false;
+            PhotonNetwork.LeaveRoom();
+        }
+        // start new match
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                NextMatchSend();
+            }
+        }
+    }
 
-        PhotonNetwork.LeaveRoom();
+    public void NextMatchSend()
+    {
+        PhotonNetwork.RaiseEvent(
+            (byte)EventCodes.NextMatch,
+            // null since no data needed for next match
+            null,
+            new RaiseEventOptions { Receivers = ReceiverGroup.All },
+            new SendOptions { Reliability = true }
+        );
+    }
+
+    public void NextMatchReceive()
+    {
+        gameState = GameState.Playing;
+
+        // hide end screen
+        UIController.instance.endScreen.SetActive(false);
+        UIController.instance.leaderboard.SetActive(false);
+
+        // reset all players stats so we dont have to send 
+        foreach (PlayerInfo player in allPlayers)
+        {
+            player.kills = 0;
+            player.deaths = 0;
+        }
+
+        UpdateStatsDisplay();
+
+        PlayerSpawner.instance.SpawnPlayer();
     }
 }
 

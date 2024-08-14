@@ -62,7 +62,7 @@ public class PlayerSpawner : MonoBehaviour
         PhotonNetwork.Instantiate(deathFX.name, player.transform.position, Quaternion.identity);
 
         PhotonNetwork.Destroy(player);
-
+        player = null;
         UIController.instance.deathScreen.SetActive(true);
 
         // stops coroutine for 5 seconds - respawn time var
@@ -70,7 +70,12 @@ public class PlayerSpawner : MonoBehaviour
 
         UIController.instance.deathScreen.SetActive(false);
 
-        // respawn player
-        SpawnPlayer();
+        // as long as game is playing, respawn player
+        // null for round end
+        if (MatchManager.instance.gameState == MatchManager.GameState.Playing && player == null)
+        {
+            SpawnPlayer();
+        }
+
     }
 }

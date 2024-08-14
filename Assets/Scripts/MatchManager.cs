@@ -400,6 +400,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        // fixes camera here for player who dies for end screen
+        Camera.main.transform.position = mapCameraPoint.position;
+        Camera.main.transform.rotation = mapCameraPoint.rotation;
+
         // wait for a few seconds before loading main menu
         // intentional design delay to show leaderboard
         StartCoroutine(EndCo());

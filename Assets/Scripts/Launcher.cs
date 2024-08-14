@@ -35,7 +35,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public GameObject nameInputScreen;
     public TMP_InputField nameInput;
-    private bool hasSetName = false;
+    // set to false to show name input screen first time,
+    // then set to true to skip name input screen after end screen
+    public static bool hasSetName = false;
 
     public string levelToPlay;
     public GameObject startButton;
@@ -60,6 +62,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 #if UNITY_EDITOR
         serverTestButton.SetActive(true);
 #endif
+
+        // set cursor to visible, since end round hides it
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void CloseMenus()

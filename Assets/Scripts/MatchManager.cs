@@ -39,7 +39,7 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public int killsToWin = 2;
     public Transform mapCameraPoint;
     public GameState gameState = GameState.Waiting;
-    public float waitAfterEnding = 5f;
+    public float waitAfterEnding = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -205,6 +205,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 index = i - 1;
             }
         }
+
+        StateCheck();
     }
 
     public void ChangeStatSend(int actorSending, int statUpdate, int amountChanged)
@@ -371,6 +373,45 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
                 ListPlayerSend();
             }
         }
+    }
+
+    void StateCheck()
+    {
+        if (gameState == GameState.Ending)
+        {
+            EndGame();
+        }
+    }
+
+    void EndGame()
+    {
+        // put just in case game state is not ending, future proof for other states
+        gameState = GameState.Ending;
+
+        // destroy all game objs
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.DestroyAll();
+        }
+
+        UIController.instance.endScreen.SetActive(true);
+        ShowLeaderboard();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // wait for a few seconds before loading main menu
+        // intentional design delay to show leaderboard
+        StartCoroutine(EndCo());
+    }
+
+    private IEnumerator EndCo()
+    {
+        yield return new WaitForSeconds(waitAfterEnding);
+
+        PhotonNetwork.AutomaticallySyncScene = false;
+
+        PhotonNetwork.LeaveRoom();
     }
 }
 

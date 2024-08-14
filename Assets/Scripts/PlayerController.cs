@@ -377,8 +377,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
         // check if player is ours
         if (photonView.IsMine)
         {
-            camera.transform.position = viewPoint.position;
-            camera.transform.rotation = viewPoint.rotation;
+            if (MatchManager.instance.gameState == MatchManager.GameState.Playing)
+            {
+                camera.transform.position = viewPoint.position;
+                camera.transform.rotation = viewPoint.rotation;
+            }
+            else
+            {
+                // moves camera to map camera point after round ends
+                // put in late update to destroy camera right away
+                camera.transform.position = MatchManager.instance.mapCameraPoint.position;
+                camera.transform.rotation = MatchManager.instance.mapCameraPoint.rotation;
+            }
         }
     }
 

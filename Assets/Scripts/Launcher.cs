@@ -44,6 +44,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public GameObject serverTestButton;
 
+    public string[] allMaps;
+    public bool changeMapBetweenRounds = true;
+
 
 
     // Start is called before the first frame update
@@ -282,7 +285,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel(levelToPlay);
+        //PhotonNetwork.LoadLevel(levelToPlay);
+
+        //load random map from list
+        PhotonNetwork.LoadLevel(allMaps[Random.Range(0, allMaps.Length)]);
     }
 
     // if host leaves, switches to another player as host

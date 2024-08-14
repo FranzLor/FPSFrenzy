@@ -4271,6 +4271,10 @@ MonoBehaviour:
   levelToPlay: MainMap
   startButton: {fileID: 118393854}
   serverTestButton: {fileID: 1244572160}
+  allMaps:
+  - MainMap
+  - Map2
+  changeMapBetweenRounds: 1
 --- !u!1 &704525346
 GameObject:
   m_ObjectHideFlags: 0

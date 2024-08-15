@@ -43,6 +43,10 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
     public float waitAfterEnding = 10f;
 
     public bool constantGames = false;
+    
+    // todo
+    public float matchLength = 10f;
+    private float currentMatchTime;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +60,8 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             NewPlayerSend(PhotonNetwork.NickName);
 
             gameState = GameState.Playing;
+
+            SetupTimer();
         }
     }
 
@@ -74,6 +80,29 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
             {
                 ShowLeaderboard();
             }
+        }
+
+        if (currentMatchTime > 0 && gameState == GameState.Playing)
+        {
+            currentMatchTime -= Time.deltaTime;
+
+            // game end
+            if (currentMatchTime <= 0f)
+            {
+                // stops negative time display
+                currentMatchTime = 0f;
+
+                gameState = GameState.Ending;
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    ListPlayerSend();
+
+                    StateCheck();
+                }
+            }
+            // update every frame
+            UpdateTimerDisplay();
         }
     }
 
@@ -483,6 +512,26 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         UpdateStatsDisplay();
 
         PlayerSpawner.instance.SpawnPlayer();
+
+        // after next match, reset timer
+        SetupTimer();
+    }
+
+    public void SetupTimer()
+    {
+        // if no match length, game ends based on max kills
+        if (matchLength > 0)
+        {
+            currentMatchTime = matchLength;
+            UpdateTimerDisplay();
+        }
+    }
+
+    public void UpdateTimerDisplay()
+    {
+        // convert time to display to minutes and seconds
+        var timeToDisplay = System.TimeSpan.FromSeconds(currentMatchTime);
+        UIController.instance.timerText.text = timeToDisplay.Minutes.ToString("00") + ":" + timeToDisplay.Seconds.ToString("00");
     }
 }
 

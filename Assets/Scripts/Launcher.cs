@@ -58,8 +58,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         loadingScreen.SetActive(true);
         loadingText.text = "Connecting to Server...";
 
-        // connect to photon server
-        PhotonNetwork.ConnectUsingSettings();
+        // fixes warning issue - make sure to connect with settings
+        if (!PhotonNetwork.IsConnected)
+        {
+            // connect to photon server
+            PhotonNetwork.ConnectUsingSettings();
+        }
 
         // only show server test button in editor - saves time
 #if UNITY_EDITOR

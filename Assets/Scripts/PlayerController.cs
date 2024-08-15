@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public Gun[] allGuns;
     private int selectedGun = 0;
 
+    // gun ADS
+    public float ADSSpeed = 5f;
+    public Transform ADSOutPoint, ADSInPoint;
+
     public GameObject playerHitImpact;
 
     public int maxHealth = 100;
@@ -276,6 +280,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
             // animation parameters for player
             anim.SetBool("grounded", isGrounded);
             anim.SetFloat("speed", moveDirection.magnitude);
+
+            // ADS / gun zoom
+            if (Input.GetMouseButton(1))
+            {
+                // gradually zoom in and move gun to ADS point
+                camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, allGuns[selectedGun].ADSZoom, ADSSpeed * Time.deltaTime);
+                gunHolder.position = Vector3.Lerp(gunHolder.position, ADSInPoint.position, ADSSpeed * Time.deltaTime);
+            }
+            else
+            {
+                // return back to normal FOV (60) and gun position
+                camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, 60f, ADSSpeed * Time.deltaTime);
+                gunHolder.position = Vector3.Lerp(gunHolder.position, ADSOutPoint.position, ADSSpeed * Time.deltaTime);
+            }
 
 
             // unlock cursor using ESC

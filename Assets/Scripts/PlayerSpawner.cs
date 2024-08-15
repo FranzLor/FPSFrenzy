@@ -37,7 +37,11 @@ public class PlayerSpawner : MonoBehaviour
         Transform spawnPoint = SpawnManager.instance.GetSpawnPoint();
 
         // save player game object for deleting later
-        player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
+        // fixes issue with player not being destroyed when leaving
+        if (spawnPoint != null)
+        {
+            player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
+        }
     }
 
     public void Die(string damager)

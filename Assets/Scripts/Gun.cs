@@ -10,4 +10,6 @@ public class Gun : MonoBehaviour
 
     public int shotDamage = 0;
 
+    public float ADSZoom;
+
 }

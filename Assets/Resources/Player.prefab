@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &494226044583358739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3827110773780592664}
+  m_Layer: 0
+  m_Name: ADS In Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3827110773780592664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494226044583358739}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0019999966, y: -0.29800004, z: -0.083999634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5471455488257849725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900723055501038783
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +251,8 @@ Transform:
   - {fileID: 3861452246460597765}
   - {fileID: 3101992123147964465}
   - {fileID: 8032168109632634913}
+  - {fileID: 3044902994863382396}
+  - {fileID: 3827110773780592664}
   m_Father: {fileID: 4545414039534831408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3569553301664978160
@@ -479,6 +512,7 @@ MonoBehaviour:
   heatPerShot: 4
   muzzleFlash: {fileID: 6422505792356813143}
   shotDamage: 30
+  ADSZoom: 25
 --- !u!1 &5531351929602630517
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +724,9 @@ MonoBehaviour:
   - {fileID: 1915291709920119654}
   - {fileID: 6387703736762551538}
   - {fileID: 5225151385255735291}
+  ADSSpeed: 5
+  ADSOutPoint: {fileID: 3044902994863382396}
+  ADSInPoint: {fileID: 3827110773780592664}
   playerHitImpact: {fileID: 5147800305683216878, guid: 91b2b0aa5d1e86e4c93a927e63365d8c, type: 3}
   maxHealth: 100
   anim: {fileID: 5920422255350719453}
@@ -1158,7 +1195,7 @@ Transform:
   m_GameObject: {fileID: 7628031899030430758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.41, y: -0.24, z: -0.084}
+  m_LocalPosition: {x: 0.23, y: -0.24, z: -0.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1218,6 +1255,7 @@ MonoBehaviour:
   heatPerShot: 2
   muzzleFlash: {fileID: 1575871965497876351}
   shotDamage: 15
+  ADSZoom: 50
 --- !u!1 &8940453067889856252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1307,38 @@ MonoBehaviour:
   heatPerShot: 2
   muzzleFlash: {fileID: 7087509273127242830}
   shotDamage: 25
+  ADSZoom: 45
+--- !u!1 &8969563716265298602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3044902994863382396}
+  m_Layer: 0
+  m_Name: ADS Out Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3044902994863382396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969563716265298602}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.41, y: -0.24000007, z: -0.083999634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5471455488257849725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6678176356773897605
 PrefabInstance:
   m_ObjectHideFlags: 0

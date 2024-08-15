@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject playerModel;
     public Transform modelGunPoint, gunHolder;
 
+    // player skins
+    public Material[] allSkins;
+
 
 
 
@@ -92,6 +95,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
             gunHolder.localPosition = Vector3.zero;
             gunHolder.localRotation = Quaternion.identity;
         }
+
+        // grabs player skin from array
+        playerModel.GetComponent<Renderer>().material = allSkins[photonView.Owner.ActorNumber % allSkins.Length];
         
         // moved to player spawner script
 

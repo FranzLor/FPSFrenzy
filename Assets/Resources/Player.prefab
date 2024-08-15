@@ -696,6 +696,9 @@ MonoBehaviour:
   playerModel: {fileID: 5920422255327204806}
   modelGunPoint: {fileID: 6061194863641932008}
   gunHolder: {fileID: 8032168109632634913}
+  allSkins:
+  - {fileID: 2100000, guid: 77c6cb66aedd8614a9d77ea6c7c4df49, type: 2}
+  - {fileID: 2100000, guid: 41928b1c3f87fb74ab84785adb8b26b4, type: 2}
 --- !u!143 &2475583524662096406
 CharacterController:
   m_ObjectHideFlags: 0

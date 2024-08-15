@@ -279,7 +279,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
             else if (Cursor.lockState == CursorLockMode.None)
             {
-                if (Input.GetMouseButtonDown(0))
+                // account for options screen being not active
+                if (Input.GetMouseButtonDown(0) && !UIController.instance.optionsScreen.activeInHierarchy)
                 {
                     Cursor.lockState = CursorLockMode.Locked;
                 }

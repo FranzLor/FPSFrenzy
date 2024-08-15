@@ -12,4 +12,6 @@ public class Gun : MonoBehaviour
 
     public float ADSZoom;
 
+    public AudioSource shotSound;
+
 }

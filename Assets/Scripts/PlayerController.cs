@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
     // player skins
     public Material[] allSkins;
 
+    // SFX
+    public AudioSource footstepSlow, footstepFast;
+
+
 
 
 
@@ -155,11 +159,32 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 // running
                 activeMoveSpeed = runSpeed;
+
+                // play footstep running sound
+                if (!footstepFast.isPlaying && moveDirection != Vector3.zero)
+                {
+                    footstepFast.Play();
+                    footstepSlow.Stop();
+                }
             }
             else
             {
                 // walking
                 activeMoveSpeed = moveSpeed;
+
+                // play footstep walking sound
+                if (!footstepSlow.isPlaying && moveDirection != Vector3.zero)
+                {
+                    footstepSlow.Play();
+                    footstepFast.Stop();
+                }
+            }
+
+            // if idle, no footstep sound
+            if (moveDirection == Vector3.zero || !isGrounded)
+            {
+                footstepSlow.Stop();
+                footstepFast.Stop();
             }
 
             float yVelocity = movement.y;
@@ -364,6 +389,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         allGuns[selectedGun].muzzleFlash.SetActive(true);
         muzzleCounter = muzzleDisplayTime;
+
+        // stop and restart sound to avoid overlapping
+        allGuns[selectedGun].shotSound.Stop();
+        // plays gun sound
+        allGuns[selectedGun].shotSound.Play();
     }
 
     // called when player is hit on every client

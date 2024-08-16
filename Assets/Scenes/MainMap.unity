@@ -4943,6 +4943,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1142899138367437447, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4545414039534831408, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4984425
@@ -4983,6 +4987,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5694700654180148248, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5828938511154309274, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
       propertyPath: sceneViewId
       value: 2
@@ -4990,6 +4998,10 @@ PrefabInstance:
     - target: {fileID: 5858460581593023625, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920422255327204804, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5920422255327693190, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5250,6 +5262,22 @@ PrefabInstance:
     - target: {fileID: 6512191432635907144, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
       propertyPath: sceneViewId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8137975930265567101, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336703122660945809, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521412922564799757, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590049487136112009, guid: 0121a89efbe8d6142ae916e2db530e46, type: 3}
+      propertyPath: sceneViewId
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

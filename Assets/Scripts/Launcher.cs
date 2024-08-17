@@ -148,6 +148,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     }
 
+    public void CloseCreateServer()
+    {
+        CloseMenus();
+        menuButtons.SetActive(true);
+    }
+
     public override void OnJoinedRoom()
     {
         CloseMenus();

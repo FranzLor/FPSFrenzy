@@ -4266,12 +4266,14 @@ MonoBehaviour:
   theServerButton: {fileID: 688102012}
   nameInputScreen: {fileID: 1101823447}
   nameInput: {fileID: 177582696}
-  levelToPlay: MainMap
+  levelToPlay: MainMenu
   startButton: {fileID: 118393854}
   serverTestButton: {fileID: 1244572160}
   allMaps:
-  - MainMap
+  - Map1
   - Map2
+  - Map3
+  - Map4
   changeMapBetweenRounds: 1
 --- !u!1 &704525346
 GameObject:

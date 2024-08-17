@@ -9339,11 +9339,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1226855231412640651, guid: e887b1517536e584288fe175caec05f8, type: 3}
+    - target: {fileID: 1707715985152327572, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1226855231412640651, guid: e887b1517536e584288fe175caec05f8, type: 3}
+    - target: {fileID: 1707715985152327572, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -9351,25 +9351,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3422763257381006685, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1e2879f6e49f82c4ca419cbbd87dde07, type: 3}
-    - target: {fileID: 3422763257381006685, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_Color.b
+    - target: {fileID: 4487540074877200141, guid: e887b1517536e584288fe175caec05f8, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3422763257381006685, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3422763257381006685, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3422763257381006685, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7179847389192262453, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_Pivot.x
@@ -9449,14 +9433,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7179847389192262453, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798213540906078003, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8798213540906078003, guid: e887b1517536e584288fe175caec05f8, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

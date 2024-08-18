@@ -9339,9 +9339,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1707715985152327572, guid: e887b1517536e584288fe175caec05f8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707715985152327572, guid: e887b1517536e584288fe175caec05f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3283319914564455075, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487540074877200141, guid: e887b1517536e584288fe175caec05f8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7179847389192262453, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_Pivot.x

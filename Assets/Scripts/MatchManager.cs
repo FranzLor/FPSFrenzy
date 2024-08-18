@@ -323,14 +323,14 @@ public class MatchManager : MonoBehaviourPunCallbacks, IOnEventCallback
         // makes sure player is in list
         if (allPlayers.Count > index)
         {
-            UIController.instance.killsText.text = "Kills - " + allPlayers[index].kills;
-            UIController.instance.deathsText.text = "Deaths - " + allPlayers[index].deaths;
+            UIController.instance.killsText.text = "" + allPlayers[index].kills;
+            UIController.instance.deathsText.text = "" + allPlayers[index].deaths;
         } 
         // if player is not in list, display 0 kills and deaths
         else
         {
-            UIController.instance.killsText.text = "Kills - 0";
-            UIController.instance.deathsText.text = "Deaths - 0";
+            UIController.instance.killsText.text = "0";
+            UIController.instance.deathsText.text = "0";
         }
     }
 

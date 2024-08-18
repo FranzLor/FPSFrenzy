@@ -47,7 +47,7 @@ public class PlayerSpawner : MonoBehaviour
     public void Die(string damager)
     {
         // death screen with killer name
-        UIController.instance.deathText.text = "Killed by " + damager;
+        UIController.instance.deathText.text = "" + damager;
 
         // change stat for player who died, increment death by 1
         MatchManager.instance.ChangeStatSend(PhotonNetwork.LocalPlayer.ActorNumber, 1, 1);

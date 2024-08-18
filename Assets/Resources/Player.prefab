@@ -645,7 +645,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d4fe29e6375ac07408e35ab5f94409ca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 90f19a64d0d449341a4a4f374187288d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1068,7 +1068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7570608755645683444
 Transform:
   m_ObjectHideFlags: 0
@@ -1233,7 +1233,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9b8cf30945ad85148b51c040f48adc21, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a7d8a7285d4e66d45950a9b75df9a9bb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1383,7 +1383,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e8b0bb6cfb805504a8ed2d40cb08b930, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 72b0fbaadace59544bc484eb0dfaee69, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1512,22 +1512,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muzzle FX
       objectReference: {fileID: 0}
-    - target: {fileID: 1238339602429184, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.06003712
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.060037073
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.04557698
-      objectReference: {fileID: 0}
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.000015466641
@@ -1568,14 +1552,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 199309059822631252, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199860936773912650, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1597,22 +1573,6 @@ PrefabInstance:
     - target: {fileID: 1238339602429184, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_Name
       value: Muzzle FX
-      objectReference: {fileID: 0}
-    - target: {fileID: 1238339602429184, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.018082282
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.01808228
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.016849328
       objectReference: {fileID: 0}
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1653,14 +1613,6 @@ PrefabInstance:
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 199309059822631252, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199860936773912650, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1917,22 +1869,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muzzle FX
       objectReference: {fileID: 0}
-    - target: {fileID: 1238339602429184, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.013635285
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.013635206
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.009876251
-      objectReference: {fileID: 0}
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00001
@@ -1972,14 +1908,6 @@ PrefabInstance:
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 199309059822631252, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199860936773912650, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -126,7 +126,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: c73a7e5295fd1af4f9b2211ce5cd9fb2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e203479b52a55924b939e80f45f68647, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -263,22 +263,6 @@ PrefabInstance:
     - target: {fileID: 4671553853463618, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199121867813211580, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199542157616901882, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199564526902061850, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199685014461816598, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

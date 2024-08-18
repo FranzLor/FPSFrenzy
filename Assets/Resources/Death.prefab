@@ -4942,7 +4942,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ff243825eea113f4e82855b3d1ca18ba, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d8b9f138d15a0cf4b88ec555c93c5b9c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9927,18 +9927,6 @@ PrefabInstance:
     - target: {fileID: 1101452535904402, guid: acaea293eaadbea4aa8e7c092a7091b6, type: 3}
       propertyPath: m_Name
       value: Death FX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4376097959667468, guid: acaea293eaadbea4aa8e7c092a7091b6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.7343674
-      objectReference: {fileID: 0}
-    - target: {fileID: 4376097959667468, guid: acaea293eaadbea4aa8e7c092a7091b6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.7343674
-      objectReference: {fileID: 0}
-    - target: {fileID: 4376097959667468, guid: acaea293eaadbea4aa8e7c092a7091b6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5.7343674
       objectReference: {fileID: 0}
     - target: {fileID: 4376097959667468, guid: acaea293eaadbea4aa8e7c092a7091b6, type: 3}
       propertyPath: m_LocalPosition.x

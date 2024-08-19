@@ -1,6 +1,4 @@
-
-`FPSFrenzy` 
-<br>
+![fpsfrenzy](https://github.com/user-attachments/assets/a09d72b4-0990-45d1-9ce2-6974475cff16)
 <br>
 ![Static Badge](https://img.shields.io/badge/version-v1.0-blue?style=flat)
 

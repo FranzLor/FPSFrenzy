@@ -11832,14 +11832,6 @@ PrefabInstance:
       value: Match Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8697025861648262658, guid: 33a831d340229624087b9c21a8f80aab, type: 3}
-      propertyPath: matchLength
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697025861648262658, guid: 33a831d340229624087b9c21a8f80aab, type: 3}
-      propertyPath: constantGames
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697025861648262658, guid: 33a831d340229624087b9c21a8f80aab, type: 3}
       propertyPath: mapCameraPoint
       value: 
       objectReference: {fileID: 990769198}

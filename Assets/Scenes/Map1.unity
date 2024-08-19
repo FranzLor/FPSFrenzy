@@ -12050,14 +12050,6 @@ PrefabInstance:
       value: Match Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8697025861648262658, guid: 33a831d340229624087b9c21a8f80aab, type: 3}
-      propertyPath: matchLength
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697025861648262658, guid: 33a831d340229624087b9c21a8f80aab, type: 3}
-      propertyPath: constantGames
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697025861648262658, guid: 33a831d340229624087b9c21a8f80aab, type: 3}
       propertyPath: mapCameraPoint
       value: 
       objectReference: {fileID: 990769198}
@@ -12085,6 +12077,10 @@ PrefabInstance:
     - target: {fileID: 3283319914564455075, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932711983400410966, guid: e887b1517536e584288fe175caec05f8, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7179847389192262453, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_Pivot.x
@@ -12164,6 +12160,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7179847389192262453, guid: e887b1517536e584288fe175caec05f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600745409668565165, guid: e887b1517536e584288fe175caec05f8, type: 3}
+      propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8798213540906078003, guid: e887b1517536e584288fe175caec05f8, type: 3}

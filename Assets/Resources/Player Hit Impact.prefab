@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 1
+  m_SynchronizeScale: 0
   m_UseLocal: 1
 --- !u!82 &4506756970130071474
 AudioSource:
@@ -225,6 +225,18 @@ PrefabInstance:
       value: Bullet FX
       objectReference: {fileID: 0}
     - target: {fileID: 4671553853463618, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.0675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671553853463618, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671553853463618, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4904
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671553853463618, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -263,6 +275,26 @@ PrefabInstance:
     - target: {fileID: 4671553853463618, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198441961615139930, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198441961615139930, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198441961615139930, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198441961615139930, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198441961615139930, guid: 3cef629217bb6f548ac6360979b26199, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

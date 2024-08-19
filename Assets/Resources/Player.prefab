@@ -157,7 +157,7 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 617e1c8612e8f1b4fb9b26665d1fab99, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c47365b5ba1eebf4cb8fb71cddd89eba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -412,7 +412,7 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5448821908493861912, guid: 21fd8c97677e2a34fb7ba4929cd1958c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ac30a2276257d3246a10dadee5445c4a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 050157e983944944b83f99d7937d353c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -839,8 +839,8 @@ MonoBehaviour:
   viewPoint: {fileID: 5471455488257849725}
   mouseSensitivity: 1
   invertVerticalLook: 0
-  moveSpeed: 8
-  runSpeed: 12
+  moveSpeed: 6
+  runSpeed: 8
   characterController: {fileID: 2475583524662096406}
   jumpForce: 10
   gravityModifier: 2.5
@@ -849,7 +849,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bulletImpact: {fileID: 5147800305683216878, guid: 33da3d89ae2eb23458fdff99ecf68712, type: 3}
-  muzzleDisplayTime: 0.04
+  muzzleDisplayTime: 0.1
   maxHeat: 8
   coolRate: 4
   overheatCoolRate: 5
@@ -867,8 +867,10 @@ MonoBehaviour:
   modelGunPoint: {fileID: 3940598001846819637}
   gunHolder: {fileID: 8032168109632634913}
   allSkins:
-  - {fileID: 2100000, guid: 77c6cb66aedd8614a9d77ea6c7c4df49, type: 2}
-  - {fileID: 2100000, guid: 41928b1c3f87fb74ab84785adb8b26b4, type: 2}
+  - {fileID: 2100000, guid: 74127230361817246951e01ab25b3bc5, type: 2}
+  - {fileID: 2100000, guid: ff33376319e587e4c91204ac427de275, type: 2}
+  - {fileID: 2100000, guid: 7222213491895fe43ad8d5232c3b4b53, type: 2}
+  - {fileID: 2100000, guid: 3212f94e07d1deb45aa6a9a29053538a, type: 2}
   footstepSlow: {fileID: 3985531031860461451}
   footstepFast: {fileID: 8089893859329110783}
 --- !u!143 &2475583524662096406
@@ -1513,6 +1515,18 @@ PrefabInstance:
       value: Muzzle FX
       objectReference: {fileID: 0}
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.053668983
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.053668942
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.032378983
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.000015466641
       objectReference: {fileID: 0}
@@ -1552,6 +1566,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 198750984857371242, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1573,6 +1591,18 @@ PrefabInstance:
     - target: {fileID: 1238339602429184, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_Name
       value: Muzzle FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0330829
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.033082876
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.014463096
       objectReference: {fileID: 0}
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1613,6 +1643,10 @@ PrefabInstance:
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 198750984857371242, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1870,6 +1904,18 @@ PrefabInstance:
       value: Muzzle FX
       objectReference: {fileID: 0}
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.019150158
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.019150142
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.007553202
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00001
       objectReference: {fileID: 0}
@@ -1908,6 +1954,22 @@ PrefabInstance:
     - target: {fileID: 4387738672767172, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970619992075028, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4496
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970619992075028, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4496
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970619992075028, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4496
+      objectReference: {fileID: 0}
+    - target: {fileID: 198750984857371242, guid: b146e67770ea31d4982013a1e23901ab, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

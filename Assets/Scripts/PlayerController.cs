@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     // bullets
     public GameObject bulletImpact;
     private float shotCounter;
-    public float muzzleDisplayTime = 0.02f;
+    public float muzzleDisplayTime = 0.1f;
     private float muzzleCounter = 0f;
     // overheating 
     public float maxHeat = 8f, coolRate = 4f, overheatCoolRate = 5f;

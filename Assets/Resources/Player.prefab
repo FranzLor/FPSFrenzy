@@ -546,10 +546,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAutomatic: 1
-  timeBetweenShots: 1
-  heatPerShot: 4
+  timeBetweenShots: 1.2
+  heatPerShot: 12
   muzzleFlash: {fileID: 6422505792356813143}
-  shotDamage: 30
+  shotDamage: 50
   ADSZoom: 25
   shotSound: {fileID: 5161084680678738793}
 --- !u!82 &5161084680678738793
@@ -766,9 +766,9 @@ MonoBehaviour:
     m_Bits: 64
   bulletImpact: {fileID: 5147800305683216878, guid: 33da3d89ae2eb23458fdff99ecf68712, type: 3}
   muzzleDisplayTime: 0.1
-  maxHeat: 8
-  coolRate: 4
-  overheatCoolRate: 5
+  maxHeat: 12
+  coolRate: 6
+  overheatCoolRate: 4.4
   allGuns:
   - {fileID: 1915291709920119654}
   - {fileID: 6387703736762551538}
@@ -1135,10 +1135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAutomatic: 1
-  timeBetweenShots: 0.5
-  heatPerShot: 2
+  timeBetweenShots: 0.7
+  heatPerShot: 4
   muzzleFlash: {fileID: 1575871965497876351}
-  shotDamage: 15
+  shotDamage: 20
   ADSZoom: 50
   shotSound: {fileID: 1649974007641843190}
 --- !u!82 &1649974007641843190
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   timeBetweenShots: 0.25
   heatPerShot: 2
   muzzleFlash: {fileID: 7087509273127242830}
-  shotDamage: 25
+  shotDamage: 5
   ADSZoom: 45
   shotSound: {fileID: 6737907347920141464}
 --- !u!82 &6737907347920141464
@@ -1660,6 +1660,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4545414039534831408}
     m_Modifications:
+    - target: {fileID: 1046021142950935873, guid: 38074321d88bbe3438955d413494dac3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3212f94e07d1deb45aa6a9a29053538a, type: 2}
     - target: {fileID: 1046021142964596801, guid: 38074321d88bbe3438955d413494dac3, type: 3}
       propertyPath: m_Name
       value: Player Character
